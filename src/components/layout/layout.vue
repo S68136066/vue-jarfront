@@ -1,4 +1,4 @@
-<template>
+<template> 
   <div class="app_wapper">
     <el-container>
       <!-- 左侧菜单 -->
@@ -12,6 +12,8 @@
       <el-container class="app_content">
         <el-header style="text-align: right; font-size: 12px">
           <i class="el-icon-setting" style="margin-right: 15px"></i>
+           <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
+          <span>{{username}}</span>
           <el-button @click="outSystem" size="mini" plain type="primary">退出</el-button>
         </el-header>
         <!-- 内容区域 -->
@@ -27,6 +29,7 @@
 // 左侧菜单组件
 import sideMeuns from '@/components/sidemeun/sideMeuns'
 import { permissionRouter } from '@/router'
+import Cookies from 'js-cookie';
 export default {
   computed: {
     getRoutes() {
@@ -40,6 +43,7 @@ export default {
   data() {
     return {
       userRole: 'Topest',
+      username:''
     }
   },
   methods: {
@@ -50,6 +54,7 @@ export default {
     },
   },
   mounted() {
+    this.username = Cookies.get('username');
     // console.log("菜单的展开跟路由有关系，查看elementui--el-menu  的default-active 属性")
     // console.log(this.$route.path)
   }

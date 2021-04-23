@@ -38,7 +38,7 @@ export const permissionRouter = [{
   meta: {
     title: "案例",
     icon: "el-icon-success",
-    roles: ['admin', 'user']
+    roles: ['admin', 'user','s68136066']
   },
   children: [{
       path: "/example/table",
@@ -88,6 +88,7 @@ export const permissionRouter = [{
 
 
 export default new Router({
+  mode: 'history',
   routes: fixedRouter
 
 })
